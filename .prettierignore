@@ -1,0 +1,8 @@
+# Ignore artifacts:
+build
+coverage
+dist
+.parcel_cache
+
+# Ignore all HTML files:
+**/*.md
