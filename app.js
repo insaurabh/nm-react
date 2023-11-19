@@ -1,5 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import dotenv from "dotenv";
+dotenv.config();
+
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
 
