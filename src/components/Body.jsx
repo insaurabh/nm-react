@@ -8,6 +8,7 @@ import mockData from "./utils/mockData";
 import RecipeContainer from "./RecipeContainer";
 import RecipeShimmer from "./Shimmers/Recipe";
 import SearchBar from "./inputs/SearchBar";
+import CardShimmer from './Shimmers/Card';
 
 const Body = () => {
   const [recipeData, setRecipeData] = useState([]);
@@ -19,21 +20,26 @@ const Body = () => {
     // console.log('usEffect called', recipeData, recipeData?.results);
   }, []);
 
-    const onSubmitHandler = (searchedRecipe) => {
-      console.log('onSubmitHandler called', searchedRecipe);
-      const recipes = searchRecipes(searchedRecipe, setRecipeData);
-    }
-
-
-  if (recipeData.length === 0) {
-    return <RecipeShimmer />
+  const onSubmitHandler = (searchedRecipe) => {
+    console.log('onSubmitHandler called', searchedRecipe);
+    const recipes = searchRecipes(searchedRecipe, setRecipeData);
   }
+
+
+  if (recipeData?.results?.length === 0 || recipeData?.length === 0) {
     return (
-      <div className="body">
-        <SearchBar onSubmitHandler={onSubmitHandler}/>
-        <RecipeContainer recipeData={recipeData}  />
-      </div>
-    );
+      <>
+        <CardShimmer />
+      </>
+    )
+  }
+
+  return (
+    <div className="body">
+      <SearchBar onSubmitHandler={onSubmitHandler} />
+      <RecipeContainer recipeData={recipeData} />
+    </div>
+  );
 };
 
 export default Body;

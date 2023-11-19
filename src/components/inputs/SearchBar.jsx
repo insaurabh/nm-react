@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const SearchBar = ({onSubmitHandler}) => {
     const [searchedRecipe, setSearchedRecipe] = useState("");
@@ -6,6 +6,10 @@ const SearchBar = ({onSubmitHandler}) => {
         console.log(text)
         setSearchedRecipe(text)
     }
+
+    useEffect(() => {
+        console.log('useEffect called')
+    }, [searchedRecipe])
     // const onSubmitHandler = () => {
     //     console.log('onSubmitHandler called', searchedRecipe);
     // }

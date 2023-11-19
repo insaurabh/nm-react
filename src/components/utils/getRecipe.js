@@ -1,4 +1,4 @@
-export const getRecipes = async (saveData = () => {}) => {
+export const getRecipe = async (recipeID, saveData = () => {}) => {
   try {
     if (
       process.env.REACT_APP_TASTY_API == "" ||
@@ -11,6 +11,8 @@ export const getRecipes = async (saveData = () => {}) => {
 
     console.log(process.env.REACT_APP_TASTY_API);
 
+    if (recipeID?.length === 0) return [];
+
     const options = {
       method: "GET",
       headers: {
@@ -20,7 +22,7 @@ export const getRecipes = async (saveData = () => {}) => {
     };
 
     const apiResponse = await fetch(
-      `${process.env.REACT_APP_TASTY_API}/recipes/list?from=0&size=20&tags=under_30_minutes`,
+      `${process.env.REACT_APP_TASTY_API}/recipes/get-more-info?id=${recipeID}`,
       options
     );
     const recipeJson = await apiResponse.json();
@@ -33,4 +35,4 @@ export const getRecipes = async (saveData = () => {}) => {
   }
 };
 
-export default getRecipes;
+export default getRecipe;

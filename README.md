@@ -9,8 +9,8 @@ Header
 Body
     - Body Container
         - Search Bar
-        - Restro Container
-            - Restro Cards
+        - Recipe Container
+            - Recipe Cards
                 - Title
                 - Description
                 - Image
@@ -21,3 +21,8 @@ Footer
         - Links
         - Contact Card
 Scroll to top
+
+## Routes
+    1. / == Home
+    2. /about-us == About Us
+    3. /contact-us == Contact Us
