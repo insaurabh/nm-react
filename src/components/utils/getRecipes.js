@@ -20,7 +20,7 @@ export const getRecipe = async (saveData = () => {}) => {
     };
 
     const apiResponse = await fetch(
-      `${process.env.REACT_APP_TASTY_API}/list?from=0&size=20&tags=under_30_minutes`,
+      `${process.env.REACT_APP_TASTY_API}/recipes/list?from=0&size=20&tags=under_30_minutes`,
       options
     );
     const recipeJson = await apiResponse.json();
