@@ -11,7 +11,7 @@ export const getRecipe = async (recipeID, saveData = () => {}) => {
 
     console.log(process.env.REACT_APP_TASTY_API);
 
-    if (recipeID?.length === 0) return [];
+    if (recipeID?.length === 0 || typeof recipeID == 'undefined') return [];
 
     const options = {
       method: "GET",

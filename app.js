@@ -11,7 +11,10 @@ import About from "./src/components/About";
 import Contact from "./src/components/Contact";
 import Footer from "./src/components/Footer";
 import ErrorPage from "./src/components/ErrorPage";
-import RecipeDetail from "./src/components/RecipeDetail";
+import RecipeDetail from "./src/components/RecipePage/RecipeDetail";
+
+import { recipesLoader, recipeLoader } from "./src/components/RecipePage/loaders";
+
 
 const AppLayout = () => {
   return (
@@ -29,8 +32,9 @@ const appRouter = createBrowserRouter([
     element: <AppLayout />,
     children: [
       {
+        index: true,
         path: '/',
-        element: <Body />
+        element: <Body />,
       },
       {
         path: '/about-us',
@@ -42,7 +46,10 @@ const appRouter = createBrowserRouter([
       },
       {
         path: '/recipe/:slug',
-        element: <RecipeDetail />
+        element: <RecipeDetail />,
+        loader:  async ({params}) => {
+          return recipeLoader(params.slug);
+        },
       }
     ],
     errorElement: <ErrorPage />

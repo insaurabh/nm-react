@@ -5,8 +5,7 @@ html {
 
 body {
     margin: 0 0 100px;
-    /* bottom = footer height */
-    padding: 25px;
+    margin-top: 7rem;
 }
 
 /* Header css */
@@ -53,6 +52,7 @@ body {
     max-width: 200px;
     background-color: antiquewhite;
     margin-bottom: 10px;
+    border: 1px solid #fff;
 }
 
 .restro-card:hover {
@@ -161,4 +161,16 @@ footer {
     width: 100%;
     overflow: hidden;
     text-align: center;
+}
+
+.progress-bar > p{
+  position: relative;
+  height: 18px;
+  display: block;
+  width: 100%;
+  background-color: #f0f0f0;
+  border-radius: 2px;
+  background-clip: padding-box;
+  top: 0;
+  text-align: center;
 }
