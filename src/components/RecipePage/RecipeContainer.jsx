@@ -1,8 +1,8 @@
 import RecipeCard from "./RecipeCard"
-const RecipeContainer = ({ recipeData }) => (
+const RecipeContainer = ({ recipesData }) => (
   <div className="restro-container">
     {
-      recipeData?.results?.length > 0 && recipeData?.results.map(recipe => (
+      recipesData?.results?.length > 0 && recipesData?.results.map(recipe => (
         <RecipeCard key={recipe.id} recipe={recipe} />
       ))
     }

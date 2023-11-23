@@ -1,4 +1,10 @@
-export const getRecipe = async (recipeID, saveData = () => {}) => {
+/**
+ * Pass recipe id and a callback in which fetched data will be sent.
+ * @param  recipeID
+ * @param  saveData
+ * @returns
+ */
+export const getRecipe = async (recipeID, saveData = () => { }) => {
   try {
     if (
       process.env.REACT_APP_TASTY_API == "" ||
@@ -8,8 +14,6 @@ export const getRecipe = async (recipeID, saveData = () => {}) => {
     ) {
       return [];
     }
-
-    console.log(process.env.REACT_APP_TASTY_API);
 
     if (recipeID?.length === 0 || typeof recipeID == 'undefined') return [];
 
@@ -26,12 +30,15 @@ export const getRecipe = async (recipeID, saveData = () => {}) => {
       options
     );
     const recipeJson = await apiResponse.json();
-    console.log(recipeJson);
+    // trigger callBack
     saveData(recipeJson);
 
     return recipeJson;
   } catch (error) {
+
     console.error(`Error fetching recipe: ${error.message}`);
+
+    return []; // don't crash the project
   }
 };
 

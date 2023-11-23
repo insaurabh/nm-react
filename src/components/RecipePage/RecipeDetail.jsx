@@ -1,26 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import getRecipe from '../utils/getRecipe';
 import { useLoaderData, useParams } from 'react-router-dom';
-import mockRecipeDetail from '../utils/mockRecipeDetail';
 import { formatDate } from '../utils/helper';
 import CardShimmer from '../Shimmers/Card';
 
 function RecipeDetail() {
-    const [recipe, setRecipe] = useState([]);
-    // returned from `useParams`
     const { slug } = useParams();
-    const recipeData = useLoaderData();
-    console.log('recipeData', recipeData)
 
-    console.log('params', slug)
-    useEffect(() => {
-        // let recipeDetails = getRecipe(slug, setRecipe);
-        setRecipe(recipeData?.recipe);
-    }, []);
+    const recipe = useLoaderData(slug);
 
-    console.log('detail', recipe);
-
-    if (recipe.length === 0) {
+    console.log('recipe', recipe)
+    if (recipe?.length === 0) {
         return <CardShimmer />
     }
     return (

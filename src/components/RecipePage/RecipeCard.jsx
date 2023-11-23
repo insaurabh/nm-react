@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 
 const RecipeCard = ({ recipe }) => {
-  console.log('recipe in card', recipe);
   return (
     <div className="restro-card">
       <img
