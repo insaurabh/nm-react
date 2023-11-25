@@ -1,13 +1,21 @@
 import { Link } from 'react-router-dom';
+import ImageLoad from '../utils/ImageLoad';
+
 
 const RecipeCard = ({ recipe }) => {
   return (
     <div className="restro-card">
-      <img
-        className="restro-image"
-        src={recipe.thumbnail_url}
-        alt={recipe.thumbnail_alt_text}
-      />
+      <ImageLoad>
+        <img
+          src={recipe.thumbnail_url}
+          className="restro-image"
+          // loading="lazy"
+          width="200"
+          height="200"
+          title={recipe.thumbnail_alt_text}
+          alt={recipe.thumbnail_alt_text}
+        />
+      </ImageLoad>
       <h3>{recipe.name}</h3>
       <h4 className="restro-cousin">{recipe.keywords?.split(',').slice(0, 3).join()}</h4>
       <span className="restro-rating">4 :⭐ </span>
