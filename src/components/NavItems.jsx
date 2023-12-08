@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 const NavItems = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
-    <div className="nav-items">
-      <ul className="">
-        <li><Link to="/"> Home</Link></li>
-        <li><Link to="/contact-us"> Contact Us</Link></li>
-        <li><Link to="/about-us"> About Us</Link></li>
-        <li>Cart</li>
-        <li>
+    <div className="flex items-center ">
+      <ul className="flex p-4 m-4">
+        <li className='px-4'><Link to="/"> Home</Link></li>
+        <li className='px-4'><Link to="/contact-us"> Contact Us</Link></li>
+        <li className='px-4'><Link to="/about-us"> About Us</Link></li>
+        <li className='px-4'>Cart</li>
+        <li className='px-4'>
           <button type="button" className={!isLoggedIn ? 'btn login' : 'btn logout'} onClick={() => setIsLoggedIn(!isLoggedIn)}>
             {!isLoggedIn ? 'Login' : 'Logout'}
           </button>

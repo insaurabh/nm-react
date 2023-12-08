@@ -1,11 +1,18 @@
 import NavItems from "./NavItems";
 import { Link } from "react-router-dom";
+import logo from './../components/assets/ranjan-restro.png'
 const Header = () => {
   return (
-    <div className="header">
+    <div className="flex justify-between bg-green-700 shadow-lg">
       <div className="logo-container">
         <Link to="/" >
-          <img src="" alt="Ranjan Restro Logo" title="Ranjan Restro Logo" width="10px" height="10px" />
+          <img src={logo}
+            className="w-28"
+            alt="Ranjan Restro Logo"
+            title="Ranjan Restro Logo"
+            width="10px"
+            height="10px"
+          />
         </Link>
       </div>
       <NavItems />
