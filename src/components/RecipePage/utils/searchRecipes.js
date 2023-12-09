@@ -1,4 +1,4 @@
-const searchRecipes = async (searchedRecipe, saveData = () => {}) => {
+const searchRecipes = async (searchedRecipe, saveData = () => { }) => {
   try {
     if (
       process.env.REACT_APP_TASTY_API == "" ||
@@ -20,15 +20,11 @@ const searchRecipes = async (searchedRecipe, saveData = () => {}) => {
         "X-RapidAPI-Host": "tasty.p.rapidapi.com",
       },
     };
-
-    console.log(options);
-
     const apiResponse = await fetch(
       `${process.env.REACT_APP_TASTY_API}/recipes/list?from=0&size=20&tags=under_30_minutes&q=${searchedRecipe}`,
       options
     );
     const recipeJson = await apiResponse.json();
-    console.log(recipeJson);
     saveData(recipeJson);
 
     return recipeJson;

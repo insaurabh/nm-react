@@ -13,7 +13,7 @@ const useRecipes = (slug) => {
         setRecipes(mockData);
     }, []);
 
-    return recipes;
+    return [recipes, setRecipes];
 }
 
 export default useRecipes;

@@ -23,7 +23,9 @@ const AppLayout = () => {
   return (
     <div className="app">
       <Header />
-      <Outlet />
+      <div className="h-24 min-h-full" style={{ minHeight: "36rem" }}>
+        <Outlet />
+      </div>
       <Footer />
     </div>
   );
@@ -50,7 +52,7 @@ const appRouter = createBrowserRouter([
       {
         path: '/recipe/:slug',
         element: <RecipeDetail />,
-        loader:  async ({params}) => {
+        loader: async ({ params }) => {
           return recipeLoader(params.slug);
         },
       }
