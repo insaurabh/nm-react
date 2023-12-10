@@ -2,7 +2,7 @@ import RecipeCard, { promotedRecipeCard } from "./RecipeCard"
 const RecipeContainer = ({ recipesData }) => {
 
   const PromotedRecipeCard = promotedRecipeCard(RecipeCard);
-
+  console.log('recipesData', recipesData)
   return (
     <div className="restro-container flex flex-wrap hover:bg-slate-50">
       {
