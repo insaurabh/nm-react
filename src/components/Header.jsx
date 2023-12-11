@@ -1,7 +1,9 @@
 import NavItems from "./NavItems";
 import { Link } from "react-router-dom";
 import logo from './../components/assets/ranjan-restro.png'
+
 const Header = () => {
+
   return (
     <div className="flex justify-between bg-green-700 shadow-lg">
       <div className="logo-container">

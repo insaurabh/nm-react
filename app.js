@@ -52,9 +52,9 @@ const appRouter = createBrowserRouter([
       {
         path: '/recipe/:slug',
         element: <RecipeDetail />,
-        loader: async ({ params }) => {
-          return recipeLoader(params.slug);
-        },
+        // loader: async ({ params }) => {
+        //   return recipeLoader(params.slug);
+        // },
       }
     ],
     errorElement: <ErrorPage />

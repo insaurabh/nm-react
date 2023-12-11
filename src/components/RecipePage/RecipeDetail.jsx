@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useLoaderData, useParams } from 'react-router-dom';
 import { formatDate } from '../utils/helper';
 import CardShimmer from '../Shimmers/Card';
+import NutritionInfo from './NutritionInfo';
 
 const recipeMock = {
     "language": "eng",
@@ -1516,12 +1517,12 @@ const recipeMock = {
 function RecipeDetail() {
     const { slug } = useParams();
 
-    const recipe = useLoaderData(slug);
-
-    console.log('recipe', recipe)
+    // const recipe = useLoaderData(slug);
+    const recipe = recipeMock;
     if (recipe?.length === 0) {
         return <CardShimmer />
     }
+
     return (
         <div className='recipe-info grid  bg-white px-20 pt-4'>
             <h1 className=' text-5xl'>{recipe?.name}</h1>
@@ -1598,28 +1599,7 @@ function RecipeDetail() {
 
             <span>Servings: {recipe?.num_servings}</span>
 
-            <div className="">
-                <div className='accordion header flex '>
-                    <span className='text-lg font-bold' >Nutrition Info</span>
-                    <span className='ml-3'>View Info +</span>
-                </div>
-                <div className='body'>
-                    {
-                        Object.entries(recipe?.nutrition).map(([key, value]) => {
-                            if (key !== 'updated_at') {
-                                return (
-                                    <div key={key}>
-                                        <span className='pr-3 capitalize'>{key}</span>
-                                        <span className='font-bold'>{value}</span>
-                                    </div>
-                                )
-                            }
-                        })
-                    }
-                </div>
-            </div>
-
-
+            <NutritionInfo nutrition={recipe?.nutrition} />
 
             <span className='recipe-info_keywords'>{recipe?.keywords}</span>
         </div>
