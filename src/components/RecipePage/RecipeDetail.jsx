@@ -1517,8 +1517,8 @@ const recipeMock = {
 function RecipeDetail() {
     const { slug } = useParams();
 
-    // const recipe = useLoaderData(slug);
-    const recipe = recipeMock;
+    const recipe = useLoaderData(slug);
+    // const recipe = recipeMock;
     if (recipe?.length === 0) {
         return <CardShimmer />
     }
