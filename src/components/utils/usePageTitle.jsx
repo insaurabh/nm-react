@@ -11,7 +11,7 @@ const titleMap = {
  * We can react-helmet for proper handling and more features like meta
  * For now used custom hooks
  */
-export default usePageTitle = (pageTitle) => {
+const usePageTitle = (pageTitle) => {
     const { pathname } = useLocation();
     const prevTitle = document.title;
     let newTitle = '';
@@ -39,3 +39,5 @@ export default usePageTitle = (pageTitle) => {
 
     return null;
 }
+
+export default usePageTitle;
