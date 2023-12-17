@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import dotenv from "dotenv";
 dotenv.config();
 
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Outlet, useLocation } from 'react-router-dom';
 
 import Header from "./src/components/Header";
 import Body from "./src/components/Body";
@@ -18,15 +18,21 @@ const About = lazy(() => import('./src/components/About'));
 const Contact = lazy(() => import("./src/components/Contact"));
 
 import CardShimmer from './src/components/Shimmers/Card';
+import UserContext from "./src/components/utils/context/userContext";
+import usePageTitle from "./src/components/utils/usePageTitle";
+
 
 const AppLayout = () => {
+  usePageTitle()
   return (
     <div className="app">
-      <Header />
-      <div className="h-24 min-h-full" style={{ minHeight: "36rem" }}>
-        <Outlet />
-      </div>
-      <Footer />
+      <UserContext.Provider value={{ loggedInUser: 'New user' }}>
+        <Header />
+        <div className="h-24 min-h-full" style={{ minHeight: "36rem" }}>
+          <Outlet />
+        </div>
+        <Footer />
+      </UserContext.Provider>
     </div>
   );
 };

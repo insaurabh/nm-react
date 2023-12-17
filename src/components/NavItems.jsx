@@ -21,10 +21,8 @@ const NavItems = () => {
           <button type="button" className={!isLoggedIn ? 'btn login' : 'btn logout'} onClick={() => setIsLoggedIn(!isLoggedIn)}>
             {!isLoggedIn ? 'Login' : 'Logout'}
           </button>
-
         </li>
       </ul>
-
     </div>
   );
 };
